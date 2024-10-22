@@ -1,0 +1,35 @@
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
+
+public class OrganizacionTareas {
+    public static void main(String[] args) {
+        // Crear una lista de tareas
+        ArrayList<Tarea> tareas = new ArrayList<>();
+
+        // Agregar tareas a la lista
+        tareas.add(new Tarea("Comprar víveres", 2));
+        tareas.add(new Tarea("Pagar facturas", 1));
+        tareas.add(new Tarea("Reunión con el equipo", 3));
+
+        // Mostrar lista original de tareas
+        System.out.println("Lista original de tareas:");
+        for (Tarea tarea : tareas) {
+            System.out.println(tarea);
+        }
+
+        // Ordenar las tareas por prioridad
+        Collections.sort(tareas, new Comparator<Tarea>() {
+            @Override
+            public int compare(Tarea t1, Tarea t2) {
+                return Integer.compare(t1.prioridad, t2.prioridad);
+            }
+        });
+
+        // Mostrar la lista de tareas ordenadas por prioridad
+        System.out.println("\nLista de tareas ordenadas por prioridad:");
+        for (Tarea tarea : tareas) {
+            System.out.println(tarea);
+        }
+    }
+}
